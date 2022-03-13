@@ -3,7 +3,7 @@ package echo
 
 import (
 	"github.com/cloudwego/kitex/server"
-	"shiqihao.xyz/echo_server/kitex_gen/api"
+	"github.com/echo_server/kitex_gen/api"
 )
 
 // NewServer creates a server.Server with the given handler and options.
