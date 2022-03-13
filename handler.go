@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"github.com/echo_server/kitex_gen/api"
+	"shiqihao.xyz/echo_server/kitex_gen/api"
 )
 
 // EchoImpl implements the last service interface defined in the IDL.

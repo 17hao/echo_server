@@ -4,7 +4,7 @@ package echo
 
 import (
 	"github.com/cloudwego/kitex/server"
-	"github.com/echo_server/kitex_gen/api"
+	"shiqihao.xyz/echo_server/kitex_gen/api"
 )
 
 // NewInvoker creates a server.Invoker with the given handler and options.

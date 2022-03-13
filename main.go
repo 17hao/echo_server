@@ -1,8 +1,8 @@
 package main
 
 import (
-	api "github.com/echo_server/kitex_gen/api/echo"
 	"log"
+	api "shiqihao.xyz/echo_server/kitex_gen/api/echo"
 )
 
 func main() {

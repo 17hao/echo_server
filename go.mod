@@ -1,3 +1,3 @@
-module github.com/echo_server
+module shiqihao.xyz/echo_server
 
 go 1.16
