@@ -1,4 +1,4 @@
-module shiqihao.xyz/echo_server
+module github.com/17hao/echo_server
 
 go 1.16
 

@@ -4,9 +4,9 @@ package echo
 
 import (
 	"context"
+	"github.com/17hao/echo_server/kitex_gen/api"
 	"github.com/cloudwego/kitex/client"
 	"github.com/cloudwego/kitex/client/callopt"
-	"shiqihao.xyz/echo_server/kitex_gen/api"
 )
 
 // Client is designed to provide IDL-compatible methods with call-option parameter for kitex framework.

@@ -4,9 +4,9 @@ package echo
 
 import (
 	"context"
+	"github.com/17hao/echo_server/kitex_gen/api"
 	"github.com/cloudwego/kitex/client"
 	kitex "github.com/cloudwego/kitex/pkg/serviceinfo"
-	"shiqihao.xyz/echo_server/kitex_gen/api"
 )
 
 func serviceInfo() *kitex.ServiceInfo {
