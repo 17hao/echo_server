@@ -9,7 +9,6 @@ import (
 type EchoImpl struct{}
 
 // Echo implements the EchoImpl interface.
-func (s *EchoImpl) Echo(ctx context.Context, req *api.Request) (resp *api.Response, err error) {
-	// TODO: Your code here...
-	return &api.Response{Message: req.GetMessage()}, nil
+func (s *EchoImpl) Echo(ctx context.Context, req *api.EchoRequest) (resp *api.EchoResponse, err error) {
+	return &api.EchoResponse{Message: req.GetMessage()}, nil
 }

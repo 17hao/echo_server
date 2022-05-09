@@ -1,13 +1,13 @@
 namespace go api
 
-struct Request {
+struct EchoRequest {
 	1: string message
 }
 
-struct Response {
+struct EchoResponse {
 	1: string message
 }
 
-service Echo {
-    Response echo(1: Request req)
+service EchoService {
+    EchoResponse echo(1: EchoRequest req)
 }

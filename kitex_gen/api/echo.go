@@ -9,26 +9,26 @@ import (
 	"strings"
 )
 
-type Request struct {
+type EchoRequest struct {
 	Message string `thrift:"message,1" json:"message"`
 }
 
-func NewRequest() *Request {
-	return &Request{}
+func NewEchoRequest() *EchoRequest {
+	return &EchoRequest{}
 }
 
-func (p *Request) GetMessage() (v string) {
+func (p *EchoRequest) GetMessage() (v string) {
 	return p.Message
 }
-func (p *Request) SetMessage(val string) {
+func (p *EchoRequest) SetMessage(val string) {
 	p.Message = val
 }
 
-var fieldIDToName_Request = map[int16]string{
+var fieldIDToName_EchoRequest = map[int16]string{
 	1: "message",
 }
 
-func (p *Request) Read(iprot thrift.TProtocol) (err error) {
+func (p *EchoRequest) Read(iprot thrift.TProtocol) (err error) {
 
 	var fieldTypeId thrift.TType
 	var fieldId int16
@@ -77,7 +77,7 @@ ReadStructBeginError:
 ReadFieldBeginError:
 	return thrift.PrependError(fmt.Sprintf("%T read field %d begin error: ", p, fieldId), err)
 ReadFieldError:
-	return thrift.PrependError(fmt.Sprintf("%T read field %d '%s' error: ", p, fieldId, fieldIDToName_Request[fieldId]), err)
+	return thrift.PrependError(fmt.Sprintf("%T read field %d '%s' error: ", p, fieldId, fieldIDToName_EchoRequest[fieldId]), err)
 SkipFieldError:
 	return thrift.PrependError(fmt.Sprintf("%T field %d skip type %d error: ", p, fieldId, fieldTypeId), err)
 
@@ -87,7 +87,7 @@ ReadStructEndError:
 	return thrift.PrependError(fmt.Sprintf("%T read struct end error: ", p), err)
 }
 
-func (p *Request) ReadField1(iprot thrift.TProtocol) error {
+func (p *EchoRequest) ReadField1(iprot thrift.TProtocol) error {
 	if v, err := iprot.ReadString(); err != nil {
 		return err
 	} else {
@@ -96,9 +96,9 @@ func (p *Request) ReadField1(iprot thrift.TProtocol) error {
 	return nil
 }
 
-func (p *Request) Write(oprot thrift.TProtocol) (err error) {
+func (p *EchoRequest) Write(oprot thrift.TProtocol) (err error) {
 	var fieldId int16
-	if err = oprot.WriteStructBegin("Request"); err != nil {
+	if err = oprot.WriteStructBegin("EchoRequest"); err != nil {
 		goto WriteStructBeginError
 	}
 	if p != nil {
@@ -125,7 +125,7 @@ WriteStructEndError:
 	return thrift.PrependError(fmt.Sprintf("%T write struct end error: ", p), err)
 }
 
-func (p *Request) writeField1(oprot thrift.TProtocol) (err error) {
+func (p *EchoRequest) writeField1(oprot thrift.TProtocol) (err error) {
 	if err = oprot.WriteFieldBegin("message", thrift.STRING, 1); err != nil {
 		goto WriteFieldBeginError
 	}
@@ -142,14 +142,14 @@ WriteFieldEndError:
 	return thrift.PrependError(fmt.Sprintf("%T write field 1 end error: ", p), err)
 }
 
-func (p *Request) String() string {
+func (p *EchoRequest) String() string {
 	if p == nil {
 		return "<nil>"
 	}
-	return fmt.Sprintf("Request(%+v)", *p)
+	return fmt.Sprintf("EchoRequest(%+v)", *p)
 }
 
-func (p *Request) DeepEqual(ano *Request) bool {
+func (p *EchoRequest) DeepEqual(ano *EchoRequest) bool {
 	if p == ano {
 		return true
 	} else if p == nil || ano == nil {
@@ -161,7 +161,7 @@ func (p *Request) DeepEqual(ano *Request) bool {
 	return true
 }
 
-func (p *Request) Field1DeepEqual(src string) bool {
+func (p *EchoRequest) Field1DeepEqual(src string) bool {
 
 	if strings.Compare(p.Message, src) != 0 {
 		return false
@@ -169,26 +169,26 @@ func (p *Request) Field1DeepEqual(src string) bool {
 	return true
 }
 
-type Response struct {
+type EchoResponse struct {
 	Message string `thrift:"message,1" json:"message"`
 }
 
-func NewResponse() *Response {
-	return &Response{}
+func NewEchoResponse() *EchoResponse {
+	return &EchoResponse{}
 }
 
-func (p *Response) GetMessage() (v string) {
+func (p *EchoResponse) GetMessage() (v string) {
 	return p.Message
 }
-func (p *Response) SetMessage(val string) {
+func (p *EchoResponse) SetMessage(val string) {
 	p.Message = val
 }
 
-var fieldIDToName_Response = map[int16]string{
+var fieldIDToName_EchoResponse = map[int16]string{
 	1: "message",
 }
 
-func (p *Response) Read(iprot thrift.TProtocol) (err error) {
+func (p *EchoResponse) Read(iprot thrift.TProtocol) (err error) {
 
 	var fieldTypeId thrift.TType
 	var fieldId int16
@@ -237,7 +237,7 @@ ReadStructBeginError:
 ReadFieldBeginError:
 	return thrift.PrependError(fmt.Sprintf("%T read field %d begin error: ", p, fieldId), err)
 ReadFieldError:
-	return thrift.PrependError(fmt.Sprintf("%T read field %d '%s' error: ", p, fieldId, fieldIDToName_Response[fieldId]), err)
+	return thrift.PrependError(fmt.Sprintf("%T read field %d '%s' error: ", p, fieldId, fieldIDToName_EchoResponse[fieldId]), err)
 SkipFieldError:
 	return thrift.PrependError(fmt.Sprintf("%T field %d skip type %d error: ", p, fieldId, fieldTypeId), err)
 
@@ -247,7 +247,7 @@ ReadStructEndError:
 	return thrift.PrependError(fmt.Sprintf("%T read struct end error: ", p), err)
 }
 
-func (p *Response) ReadField1(iprot thrift.TProtocol) error {
+func (p *EchoResponse) ReadField1(iprot thrift.TProtocol) error {
 	if v, err := iprot.ReadString(); err != nil {
 		return err
 	} else {
@@ -256,9 +256,9 @@ func (p *Response) ReadField1(iprot thrift.TProtocol) error {
 	return nil
 }
 
-func (p *Response) Write(oprot thrift.TProtocol) (err error) {
+func (p *EchoResponse) Write(oprot thrift.TProtocol) (err error) {
 	var fieldId int16
-	if err = oprot.WriteStructBegin("Response"); err != nil {
+	if err = oprot.WriteStructBegin("EchoResponse"); err != nil {
 		goto WriteStructBeginError
 	}
 	if p != nil {
@@ -285,7 +285,7 @@ WriteStructEndError:
 	return thrift.PrependError(fmt.Sprintf("%T write struct end error: ", p), err)
 }
 
-func (p *Response) writeField1(oprot thrift.TProtocol) (err error) {
+func (p *EchoResponse) writeField1(oprot thrift.TProtocol) (err error) {
 	if err = oprot.WriteFieldBegin("message", thrift.STRING, 1); err != nil {
 		goto WriteFieldBeginError
 	}
@@ -302,14 +302,14 @@ WriteFieldEndError:
 	return thrift.PrependError(fmt.Sprintf("%T write field 1 end error: ", p), err)
 }
 
-func (p *Response) String() string {
+func (p *EchoResponse) String() string {
 	if p == nil {
 		return "<nil>"
 	}
-	return fmt.Sprintf("Response(%+v)", *p)
+	return fmt.Sprintf("EchoResponse(%+v)", *p)
 }
 
-func (p *Response) DeepEqual(ano *Response) bool {
+func (p *EchoResponse) DeepEqual(ano *EchoResponse) bool {
 	if p == ano {
 		return true
 	} else if p == nil || ano == nil {
@@ -321,7 +321,7 @@ func (p *Response) DeepEqual(ano *Response) bool {
 	return true
 }
 
-func (p *Response) Field1DeepEqual(src string) bool {
+func (p *EchoResponse) Field1DeepEqual(src string) bool {
 
 	if strings.Compare(p.Message, src) != 0 {
 		return false
@@ -329,70 +329,70 @@ func (p *Response) Field1DeepEqual(src string) bool {
 	return true
 }
 
-type Echo interface {
-	Echo(ctx context.Context, req *Request) (r *Response, err error)
+type EchoService interface {
+	Echo(ctx context.Context, req *EchoRequest) (r *EchoResponse, err error)
 }
 
-type EchoClient struct {
+type EchoServiceClient struct {
 	c thrift.TClient
 }
 
-func NewEchoClientFactory(t thrift.TTransport, f thrift.TProtocolFactory) *EchoClient {
-	return &EchoClient{
+func NewEchoServiceClientFactory(t thrift.TTransport, f thrift.TProtocolFactory) *EchoServiceClient {
+	return &EchoServiceClient{
 		c: thrift.NewTStandardClient(f.GetProtocol(t), f.GetProtocol(t)),
 	}
 }
 
-func NewEchoClientProtocol(t thrift.TTransport, iprot thrift.TProtocol, oprot thrift.TProtocol) *EchoClient {
-	return &EchoClient{
+func NewEchoServiceClientProtocol(t thrift.TTransport, iprot thrift.TProtocol, oprot thrift.TProtocol) *EchoServiceClient {
+	return &EchoServiceClient{
 		c: thrift.NewTStandardClient(iprot, oprot),
 	}
 }
 
-func NewEchoClient(c thrift.TClient) *EchoClient {
-	return &EchoClient{
+func NewEchoServiceClient(c thrift.TClient) *EchoServiceClient {
+	return &EchoServiceClient{
 		c: c,
 	}
 }
 
-func (p *EchoClient) Client_() thrift.TClient {
+func (p *EchoServiceClient) Client_() thrift.TClient {
 	return p.c
 }
 
-func (p *EchoClient) Echo(ctx context.Context, req *Request) (r *Response, err error) {
-	var _args EchoEchoArgs
+func (p *EchoServiceClient) Echo(ctx context.Context, req *EchoRequest) (r *EchoResponse, err error) {
+	var _args EchoServiceEchoArgs
 	_args.Req = req
-	var _result EchoEchoResult
+	var _result EchoServiceEchoResult
 	if err = p.Client_().Call(ctx, "echo", &_args, &_result); err != nil {
 		return
 	}
 	return _result.GetSuccess(), nil
 }
 
-type EchoProcessor struct {
+type EchoServiceProcessor struct {
 	processorMap map[string]thrift.TProcessorFunction
-	handler      Echo
+	handler      EchoService
 }
 
-func (p *EchoProcessor) AddToProcessorMap(key string, processor thrift.TProcessorFunction) {
+func (p *EchoServiceProcessor) AddToProcessorMap(key string, processor thrift.TProcessorFunction) {
 	p.processorMap[key] = processor
 }
 
-func (p *EchoProcessor) GetProcessorFunction(key string) (processor thrift.TProcessorFunction, ok bool) {
+func (p *EchoServiceProcessor) GetProcessorFunction(key string) (processor thrift.TProcessorFunction, ok bool) {
 	processor, ok = p.processorMap[key]
 	return processor, ok
 }
 
-func (p *EchoProcessor) ProcessorMap() map[string]thrift.TProcessorFunction {
+func (p *EchoServiceProcessor) ProcessorMap() map[string]thrift.TProcessorFunction {
 	return p.processorMap
 }
 
-func NewEchoProcessor(handler Echo) *EchoProcessor {
-	self := &EchoProcessor{handler: handler, processorMap: make(map[string]thrift.TProcessorFunction)}
-	self.AddToProcessorMap("echo", &echoProcessorEcho{handler: handler})
+func NewEchoServiceProcessor(handler EchoService) *EchoServiceProcessor {
+	self := &EchoServiceProcessor{handler: handler, processorMap: make(map[string]thrift.TProcessorFunction)}
+	self.AddToProcessorMap("echo", &echoServiceProcessorEcho{handler: handler})
 	return self
 }
-func (p *EchoProcessor) Process(ctx context.Context, iprot, oprot thrift.TProtocol) (success bool, err thrift.TException) {
+func (p *EchoServiceProcessor) Process(ctx context.Context, iprot, oprot thrift.TProtocol) (success bool, err thrift.TException) {
 	name, _, seqId, err := iprot.ReadMessageBegin()
 	if err != nil {
 		return false, err
@@ -410,12 +410,12 @@ func (p *EchoProcessor) Process(ctx context.Context, iprot, oprot thrift.TProtoc
 	return false, x
 }
 
-type echoProcessorEcho struct {
-	handler Echo
+type echoServiceProcessorEcho struct {
+	handler EchoService
 }
 
-func (p *echoProcessorEcho) Process(ctx context.Context, seqId int32, iprot, oprot thrift.TProtocol) (success bool, err thrift.TException) {
-	args := EchoEchoArgs{}
+func (p *echoServiceProcessorEcho) Process(ctx context.Context, seqId int32, iprot, oprot thrift.TProtocol) (success bool, err thrift.TException) {
+	args := EchoServiceEchoArgs{}
 	if err = args.Read(iprot); err != nil {
 		iprot.ReadMessageEnd()
 		x := thrift.NewTApplicationException(thrift.PROTOCOL_ERROR, err.Error())
@@ -428,8 +428,8 @@ func (p *echoProcessorEcho) Process(ctx context.Context, seqId int32, iprot, opr
 
 	iprot.ReadMessageEnd()
 	var err2 error
-	result := EchoEchoResult{}
-	var retval *Response
+	result := EchoServiceEchoResult{}
+	var retval *EchoResponse
 	if retval, err2 = p.handler.Echo(ctx, args.Req); err2 != nil {
 		x := thrift.NewTApplicationException(thrift.INTERNAL_ERROR, "Internal error processing echo: "+err2.Error())
 		oprot.WriteMessageBegin("echo", thrift.EXCEPTION, seqId)
@@ -458,35 +458,35 @@ func (p *echoProcessorEcho) Process(ctx context.Context, seqId int32, iprot, opr
 	return true, err
 }
 
-type EchoEchoArgs struct {
-	Req *Request `thrift:"req,1" json:"req"`
+type EchoServiceEchoArgs struct {
+	Req *EchoRequest `thrift:"req,1" json:"req"`
 }
 
-func NewEchoEchoArgs() *EchoEchoArgs {
-	return &EchoEchoArgs{}
+func NewEchoServiceEchoArgs() *EchoServiceEchoArgs {
+	return &EchoServiceEchoArgs{}
 }
 
-var EchoEchoArgs_Req_DEFAULT *Request
+var EchoServiceEchoArgs_Req_DEFAULT *EchoRequest
 
-func (p *EchoEchoArgs) GetReq() (v *Request) {
+func (p *EchoServiceEchoArgs) GetReq() (v *EchoRequest) {
 	if !p.IsSetReq() {
-		return EchoEchoArgs_Req_DEFAULT
+		return EchoServiceEchoArgs_Req_DEFAULT
 	}
 	return p.Req
 }
-func (p *EchoEchoArgs) SetReq(val *Request) {
+func (p *EchoServiceEchoArgs) SetReq(val *EchoRequest) {
 	p.Req = val
 }
 
-var fieldIDToName_EchoEchoArgs = map[int16]string{
+var fieldIDToName_EchoServiceEchoArgs = map[int16]string{
 	1: "req",
 }
 
-func (p *EchoEchoArgs) IsSetReq() bool {
+func (p *EchoServiceEchoArgs) IsSetReq() bool {
 	return p.Req != nil
 }
 
-func (p *EchoEchoArgs) Read(iprot thrift.TProtocol) (err error) {
+func (p *EchoServiceEchoArgs) Read(iprot thrift.TProtocol) (err error) {
 
 	var fieldTypeId thrift.TType
 	var fieldId int16
@@ -535,7 +535,7 @@ ReadStructBeginError:
 ReadFieldBeginError:
 	return thrift.PrependError(fmt.Sprintf("%T read field %d begin error: ", p, fieldId), err)
 ReadFieldError:
-	return thrift.PrependError(fmt.Sprintf("%T read field %d '%s' error: ", p, fieldId, fieldIDToName_EchoEchoArgs[fieldId]), err)
+	return thrift.PrependError(fmt.Sprintf("%T read field %d '%s' error: ", p, fieldId, fieldIDToName_EchoServiceEchoArgs[fieldId]), err)
 SkipFieldError:
 	return thrift.PrependError(fmt.Sprintf("%T field %d skip type %d error: ", p, fieldId, fieldTypeId), err)
 
@@ -545,15 +545,15 @@ ReadStructEndError:
 	return thrift.PrependError(fmt.Sprintf("%T read struct end error: ", p), err)
 }
 
-func (p *EchoEchoArgs) ReadField1(iprot thrift.TProtocol) error {
-	p.Req = NewRequest()
+func (p *EchoServiceEchoArgs) ReadField1(iprot thrift.TProtocol) error {
+	p.Req = NewEchoRequest()
 	if err := p.Req.Read(iprot); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (p *EchoEchoArgs) Write(oprot thrift.TProtocol) (err error) {
+func (p *EchoServiceEchoArgs) Write(oprot thrift.TProtocol) (err error) {
 	var fieldId int16
 	if err = oprot.WriteStructBegin("echo_args"); err != nil {
 		goto WriteStructBeginError
@@ -582,7 +582,7 @@ WriteStructEndError:
 	return thrift.PrependError(fmt.Sprintf("%T write struct end error: ", p), err)
 }
 
-func (p *EchoEchoArgs) writeField1(oprot thrift.TProtocol) (err error) {
+func (p *EchoServiceEchoArgs) writeField1(oprot thrift.TProtocol) (err error) {
 	if err = oprot.WriteFieldBegin("req", thrift.STRUCT, 1); err != nil {
 		goto WriteFieldBeginError
 	}
@@ -599,14 +599,14 @@ WriteFieldEndError:
 	return thrift.PrependError(fmt.Sprintf("%T write field 1 end error: ", p), err)
 }
 
-func (p *EchoEchoArgs) String() string {
+func (p *EchoServiceEchoArgs) String() string {
 	if p == nil {
 		return "<nil>"
 	}
-	return fmt.Sprintf("EchoEchoArgs(%+v)", *p)
+	return fmt.Sprintf("EchoServiceEchoArgs(%+v)", *p)
 }
 
-func (p *EchoEchoArgs) DeepEqual(ano *EchoEchoArgs) bool {
+func (p *EchoServiceEchoArgs) DeepEqual(ano *EchoServiceEchoArgs) bool {
 	if p == ano {
 		return true
 	} else if p == nil || ano == nil {
@@ -618,7 +618,7 @@ func (p *EchoEchoArgs) DeepEqual(ano *EchoEchoArgs) bool {
 	return true
 }
 
-func (p *EchoEchoArgs) Field1DeepEqual(src *Request) bool {
+func (p *EchoServiceEchoArgs) Field1DeepEqual(src *EchoRequest) bool {
 
 	if !p.Req.DeepEqual(src) {
 		return false
@@ -626,35 +626,35 @@ func (p *EchoEchoArgs) Field1DeepEqual(src *Request) bool {
 	return true
 }
 
-type EchoEchoResult struct {
-	Success *Response `thrift:"success,0" json:"success,omitempty"`
+type EchoServiceEchoResult struct {
+	Success *EchoResponse `thrift:"success,0" json:"success,omitempty"`
 }
 
-func NewEchoEchoResult() *EchoEchoResult {
-	return &EchoEchoResult{}
+func NewEchoServiceEchoResult() *EchoServiceEchoResult {
+	return &EchoServiceEchoResult{}
 }
 
-var EchoEchoResult_Success_DEFAULT *Response
+var EchoServiceEchoResult_Success_DEFAULT *EchoResponse
 
-func (p *EchoEchoResult) GetSuccess() (v *Response) {
+func (p *EchoServiceEchoResult) GetSuccess() (v *EchoResponse) {
 	if !p.IsSetSuccess() {
-		return EchoEchoResult_Success_DEFAULT
+		return EchoServiceEchoResult_Success_DEFAULT
 	}
 	return p.Success
 }
-func (p *EchoEchoResult) SetSuccess(x interface{}) {
-	p.Success = x.(*Response)
+func (p *EchoServiceEchoResult) SetSuccess(x interface{}) {
+	p.Success = x.(*EchoResponse)
 }
 
-var fieldIDToName_EchoEchoResult = map[int16]string{
+var fieldIDToName_EchoServiceEchoResult = map[int16]string{
 	0: "success",
 }
 
-func (p *EchoEchoResult) IsSetSuccess() bool {
+func (p *EchoServiceEchoResult) IsSetSuccess() bool {
 	return p.Success != nil
 }
 
-func (p *EchoEchoResult) Read(iprot thrift.TProtocol) (err error) {
+func (p *EchoServiceEchoResult) Read(iprot thrift.TProtocol) (err error) {
 
 	var fieldTypeId thrift.TType
 	var fieldId int16
@@ -703,7 +703,7 @@ ReadStructBeginError:
 ReadFieldBeginError:
 	return thrift.PrependError(fmt.Sprintf("%T read field %d begin error: ", p, fieldId), err)
 ReadFieldError:
-	return thrift.PrependError(fmt.Sprintf("%T read field %d '%s' error: ", p, fieldId, fieldIDToName_EchoEchoResult[fieldId]), err)
+	return thrift.PrependError(fmt.Sprintf("%T read field %d '%s' error: ", p, fieldId, fieldIDToName_EchoServiceEchoResult[fieldId]), err)
 SkipFieldError:
 	return thrift.PrependError(fmt.Sprintf("%T field %d skip type %d error: ", p, fieldId, fieldTypeId), err)
 
@@ -713,15 +713,15 @@ ReadStructEndError:
 	return thrift.PrependError(fmt.Sprintf("%T read struct end error: ", p), err)
 }
 
-func (p *EchoEchoResult) ReadField0(iprot thrift.TProtocol) error {
-	p.Success = NewResponse()
+func (p *EchoServiceEchoResult) ReadField0(iprot thrift.TProtocol) error {
+	p.Success = NewEchoResponse()
 	if err := p.Success.Read(iprot); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (p *EchoEchoResult) Write(oprot thrift.TProtocol) (err error) {
+func (p *EchoServiceEchoResult) Write(oprot thrift.TProtocol) (err error) {
 	var fieldId int16
 	if err = oprot.WriteStructBegin("echo_result"); err != nil {
 		goto WriteStructBeginError
@@ -750,7 +750,7 @@ WriteStructEndError:
 	return thrift.PrependError(fmt.Sprintf("%T write struct end error: ", p), err)
 }
 
-func (p *EchoEchoResult) writeField0(oprot thrift.TProtocol) (err error) {
+func (p *EchoServiceEchoResult) writeField0(oprot thrift.TProtocol) (err error) {
 	if p.IsSetSuccess() {
 		if err = oprot.WriteFieldBegin("success", thrift.STRUCT, 0); err != nil {
 			goto WriteFieldBeginError
@@ -769,14 +769,14 @@ WriteFieldEndError:
 	return thrift.PrependError(fmt.Sprintf("%T write field 0 end error: ", p), err)
 }
 
-func (p *EchoEchoResult) String() string {
+func (p *EchoServiceEchoResult) String() string {
 	if p == nil {
 		return "<nil>"
 	}
-	return fmt.Sprintf("EchoEchoResult(%+v)", *p)
+	return fmt.Sprintf("EchoServiceEchoResult(%+v)", *p)
 }
 
-func (p *EchoEchoResult) DeepEqual(ano *EchoEchoResult) bool {
+func (p *EchoServiceEchoResult) DeepEqual(ano *EchoServiceEchoResult) bool {
 	if p == ano {
 		return true
 	} else if p == nil || ano == nil {
@@ -788,7 +788,7 @@ func (p *EchoEchoResult) DeepEqual(ano *EchoEchoResult) bool {
 	return true
 }
 
-func (p *EchoEchoResult) Field0DeepEqual(src *Response) bool {
+func (p *EchoServiceEchoResult) Field0DeepEqual(src *EchoResponse) bool {
 
 	if !p.Success.DeepEqual(src) {
 		return false
